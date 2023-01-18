@@ -1,5 +1,5 @@
 # chatsystem-react
 
-Test framework react
+Test framework React
 
 Server NodeJS(express/socket.io)
