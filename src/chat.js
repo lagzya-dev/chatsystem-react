@@ -1,7 +1,6 @@
 import React from 'react';
 import './chat.scss';
 import io from 'socket.io-client';
-import ReactDOM from 'react-dom/client';
 
 const socket = io();
   function Blog(props) {
@@ -37,7 +36,7 @@ export default class Chat extends React.Component {
             audio.play();
         })
         socket.on("loadMsg", (msg) =>{
-            this.messages.push(msg);
+            this.messages = msg;
             this.setState({value: ''});
             
         })

@@ -33,12 +33,8 @@ let messages = [];
 io.on("connection", (socket) => {
     console.log('user connection')
     socket.on("new", () => {
-        
-        for(let i = 0; i < messages.length; i++){
-            
-            console.log(messages[i])
-            socket.emit("update", messages[i])
-        }
+         socket.emit("loadMsg",messages)
+
     })
     socket.on("disconnect", () => {
         
