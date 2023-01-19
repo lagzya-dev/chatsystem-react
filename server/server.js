@@ -6,13 +6,17 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
-app.set('port', 1000);
+app.set('port', 5000);
 console.log(__dirname)
-app.use("/static/js", express.static(__dirname.replace("\server", "") + "/build/static/js"));
-app.use("/static/media", express.static(__dirname.replace("\server", "") + "/build/static/media"));
-app.use("/static/css", express.static(__dirname.replace("\server", "") + "/build/static/css"));
 app.get("/", (requst, response) => {
     response.sendFile(path.join(__dirname.replace("\server", "") + "", "build/index.html"))
+})
+
+app.get("/static/js/main.b46b634c.js", (requst, response) => {
+    response.sendFile(path.join(__dirname.replace("\server", "") + "", "/build/static/js/main.b46b634c.js"))
+})
+app.get("/static/css/main.59f3464a.css", (requst, response) => {
+    response.sendFile(path.join(__dirname.replace("\server", "") + "", "/build/static/css/main.59f3464a.css"))
 })
 app.get("/manifest.json", (requst, response) => {
     response.sendFile(path.join(__dirname.replace("\server", "") + "", "build/manifest.json"))
@@ -25,7 +29,7 @@ app.get("/notify.mp3", (requst, response) => {
     response.sendFile(path.join(__dirname.replace("\server", "") + "", "build/notify.mp3"))
 })
 
-server.listen(1000, () => {
+server.listen(5000, () => {
     console.log("Start server")
 });
 let count = 0;

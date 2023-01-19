@@ -27,7 +27,7 @@ export default class Chat extends React.Component {
         this.state = {value: '', messages: []};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        socket.emit("new");
+       socket.emit("new");
         socket.on("update", (msg) =>{
             this.messages.push(msg);
             this.setState({value: ''});
@@ -38,7 +38,7 @@ export default class Chat extends React.Component {
         socket.on("loadMsg", (msg) =>{
             this.messages = msg;
             this.setState({value: ''});
-            
+        
         })
       }
      
